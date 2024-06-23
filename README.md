@@ -1,17 +1,17 @@
-#Bike Rental
+# Bike Rental
 Bike rental system
 
-##Introduction
-This is an test project on online bike rental system.By using this application you can rent any vehicle on any time with a customer friendly UI
+### Introduction
+This is a test project on an online bike rental system. By using this application, you can rent any vehicle at any time with a customer-friendly UI.
 
-##Features
+### Features
  - See availability of vehicles
  - Rent your desired vehicle
  - Travel anywhere
 
-##Usage
- - open app.py in command prompt
- - Enter the local URL in werb browser
+### Usage
+ - Open `app.py` in command prompt
+ - Enter the local URL in web browser
 
-##Licence
-This project is licensed under KEC license
+### License
+This project is licensed under KEC license.
