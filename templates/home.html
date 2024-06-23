@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Rental System</title>
+    <style>
+        /* Basic CSS for layout and styling (adjust as needed) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333; /* Dark text color */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .hero {
+            background: url('bike-rental-hero.jpg') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #792121;
+            font-size: 2rem;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+        }
+        .service {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .service:hover {
+            transform: translateY(-10px);
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        nav {
+            background-color: #444444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            font-size: large;
+            font-family: initial;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #d4cbcb;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffcc00; /* Yellow hover color */
+            transform: translateY(-3px);
+        }
+        nav a:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        section .container button{
+            background-color: #884c4c83;
+            color: black;
+            width: 20%;
+            margin: auto;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 900;
+            border-radius: 50px;
+            box-shadow: #333;
+        }
+        section .container button:hover{
+            background-color: #8f4343;
+            transform: translateY(-8px);
+            transition-duration: 0.5s;
+            border-radius: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Bike Rental System</h1>
+            <p>Rent your perfect ride today!</p>
+        </div>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+        <a href="/logout" style="float: right;">Logout</a>
+    </nav>
+    <h2>Welcome {{usernam}}!</h2>
+    <section class="hero">
+        <div class="container">
+            <h2>Explore the City on Two Wheels</h2>
+            <p>Discover our wide range of bikes for every adventure.</p>
+            <a href="/set_city"><button>Rent a Vehicle</button></a><br>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="service">
+                <h3>City Bikes</h3>
+                <p>Perfect for urban commuting.</p>
+            </div>
+            <div class="service">
+                <h3>Mountain Bikes</h3>
+                <p>Explore off-road trails and adventures.</p>
+            </div>
+            <div class="service">
+                <h3>Kids Bikes</h3>
+                <p>Fun and safe bikes for children.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <h2>About Bike Rental System</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet urna non velit facilisis, eget bibendum ligula tempor. Sed vel eros ante. Morbi in dui ac est volutpat semper sed ac eros. Suspendisse vehicula eleifend neque, sed aliquet justo lacinia sit amet. Duis rhoncus, mauris a feugiat sodales, urna ex mollis nunc, eu sagittis felis sem id elit. Nulla facilisi.</p>
+
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Wide range of bikes to choose from.</li>
+            <li>Flexible rental periods.</li>
+            <li>Competitive pricing.</li>
+            <li>Quality bikes for all ages and preferences.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Bike Rental System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

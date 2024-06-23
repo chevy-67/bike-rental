@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Rental Distance Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff6347;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        select, input[type="submit"], button {
+            width: 77%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="submit"], button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, button:hover {
+            background-color: #ee5a33;
+        }
+
+        .availability-message {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .available {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .unavailable {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bike Rental</h1>
+        <form action="/get_distance" method="post">
+            <label for="vandi">Select a Vehicle</label>
+            <select name="vandi" id="vandi">
+                <option value="Pulsar 150" {% if wandi == 'Pulsar 150' %}selected{% endif %}>Pulsar 150</option>
+                <option value="Pulsar 220" {% if wandi == 'Pulsar 220' %}selected{% endif %}>Pulsar 220</option>
+                <option value="Appache" {% if wandi == 'Appache' %}selected{% endif %}>Appache</option>
+                <option value="Splender" {% if wandi == 'Splender' %}selected{% endif %}>Splender</option>
+                <option value="Jupitar" {% if wandi == 'Jupitar' %}selected{% endif %}>Jupitar</option>
+                <option value="Pleasure" {% if wandi == 'Pleasure' %}selected{% endif %}>Pleasure</option>
+                <option value="TVS 50" {% if wandi == 'TVS 50' %}selected{% endif %}>TVS 50</option>
+            </select>
+            <br><br>
+            {% if city is not none %}
+                {% if city == 'erode' %}
+                    <label for="from_di">From</label>
+                    <select name="from_di" id="from_di">
+                        <option value="Perundurai" {% if from_dist == 'Perundurai' %}selected{% endif %}>Perundurai</option>
+                        <option value="Erode" {% if from_dist == 'Erode' %}selected{% endif %}>Erode</option>
+                        <option value="Thindal" {% if from_dist == 'Thindal' %}selected{% endif %}>Thindal</option>
+                        <option value="Studio" {% if from_dist == 'Studio' %}selected{% endif %}>Studio</option>
+                    </select>
+                    <label for="to_di">To</label>
+                    <select name="to_di" id="to_di">
+                        <option value="Perundurai" {% if to == 'Perundurai' %}selected{% endif %}>Perundurai</option>
+                        <option value="Erode" {% if to == 'Erode' %}selected{% endif %}>Erode</option>
+                        <option value="Thindal" {% if to == 'Thindal' %}selected{% endif %}>Thindal</option>
+                        <option value="Studio" {% if to == 'Studio' %}selected{% endif %}>Studio</option>
+                    </select><br><br>
+                {% elif city == 'salem' %}
+                    <label for="from_di">From</label>
+                    <select name="from_di" id="from_di">
+                        <option value="Attur" {% if from_dist == 'Attur' %}selected{% endif %}>Attur</option>
+                        <option value="Salem" {% if from_dist == 'Salem' %}selected{% endif %}>Salem</option>
+                        <option value="Vazhapadi" {% if from_dist == 'Vazhapadi' %}selected{% endif %}>Vazhapadi</option>
+                        <option value="Yercaud" {% if from_dist == 'Yercaud' %}selected{% endif %}>Yercaud</option>
+                    </select>
+                    <label for="to_di">To</label>
+                    <select name="to_di" id="to_di">
+                        <option value="Attur" {% if to == 'Attur' %}selected{% endif %}>Attur</option>
+                        <option value="Salem" {% if to == 'Salem' %}selected{% endif %}>Salem</option>
+                        <option value="Vazhapadi" {% if to == 'Vazhapadi' %}selected{% endif %}>Vazhapadi</option>
+                        <option value="Yercaud" {% if to == 'Yercaud' %}selected{% endif %}>Yercaud</option>
+                    </select><br><br>
+                {% elif city == 'cbe' %}
+                    <label for="from_di">From</label>
+                    <select name="from_di" id="from_di">
+                        <option value="CBE" {% if from_dist == 'CBE' %}selected{% endif %}>Coimbatore</option>
+                        <option value="Marudhamalai" {% if from_dist == 'Marudhamalai' %}selected{% endif %}>Marudhamalai</option>
+                        <option value="Eesha" {% if from_dist == 'Eesha' %}selected{% endif %}>Eesha Yoga</option>
+                        <option value="Pollachi" {% if from_dist == 'Pollachi' %}selected{% endif %}>Pollachi</option>
+                    </select>
+                    <label for="to_di">To</label>
+                    <select name="to_di" id="to_di">
+                        <option value="CBE" {% if to == 'CBE' %}selected{% endif %}>Coimbatore</option>
+                        <option value="Marudhamalai" {% if to == 'Marudhamalai' %}selected{% endif %}>Marudhamalai</option>
+                        <option value="Eesha" {% if to == 'Eesha' %}selected{% endif %}>Eesha Yoga</option>
+                        <option value="Pollachi" {% if to == 'Pollachi' %}selected{% endif %}>Pollachi</option>
+                    </select><br><br>
+                {% endif %}
+                <input type="submit" value="Estimate">
+            {% endif %}
+        </form>
+
+        {% if availability is not none %}
+            {% if availability == 1 %}
+                <div class="availability-message available">
+                    <h1>Hurray! {{ wandi }} is available</h1>
+                    <h4>From {{ from_dist }} to {{ to }}</h4>
+                    <h2>Estimated Distance : {{ distance }} km</h2>
+                    <h4>For {{ wandi }}</h4>
+                    <h2>Estimated Cost : Rs {{ cost }} /-</h2>
+                    <p>Bike can be rented now!</p>
+                </div>
+                {% endif %}
+            {% if availability==2 %}
+                <div class="availability-message unavailable">
+                    <h2>Sorry, {{ wandi }} is not available right now</h2>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
