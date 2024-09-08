@@ -12,6 +12,3 @@ This is a test project on an online bike rental system. By using this applicatio
 ### Usage
  - Open `app.py` in command prompt
  - Enter the local URL in web browser
-
-### License
-This project is licensed under KEC license.
